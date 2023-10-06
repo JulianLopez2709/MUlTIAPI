@@ -15,14 +15,19 @@ class MainViewModel:ViewModel() {
     val listBaseball= _listBaseball
     private val _errorLiveData = MutableLiveData<String>()
     val errorLiveData= _errorLiveData
+    private val _stateLiveData = MutableLiveData<Boolean>()
+    val stateLiveData = _stateLiveData
 
     fun getRetrofit(){
         viewModelScope.launch(Dispatchers.IO) {
+            _stateLiveData.postValue(true)
+
             try {
                 val response = retrofit.getTeams()
                 if (response.isSuccessful){
                     val body = response.body()
                     body?.let {
+                        _stateLiveData.postValue(false)
                         _listBaseball.postValue(it.body)
                     }
                 }else{

@@ -17,15 +17,19 @@ class DetalViewModel : ViewModel() {
     val listBaseball= _listBaseball
     private val _errorLiveData = MutableLiveData<String>()
     val errorLiveData= _errorLiveData
-
+    private val _stateLiveData = MutableLiveData<Boolean>()
+    val stateLiveData = _stateLiveData
 
     fun getDetailTeam(id: String) {
+        _stateLiveData.postValue(false)
+
         viewModelScope.launch(Dispatchers.IO) {
             try {
                 val response = retrofit.getTeamRoster(id)
                 if (response.isSuccessful){
                     val body = response.body()
                     body?.let {
+                        _stateLiveData.postValue(false)
                         val data = body.body.roster
                         _listBaseball.postValue(data)
                     }

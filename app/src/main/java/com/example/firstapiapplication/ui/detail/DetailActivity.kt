@@ -3,6 +3,7 @@ package com.example.firstapiapplication.ui.detail
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.firstapiapplication.R
 import com.example.firstapiapplication.databinding.ActivityDetailBinding
@@ -32,6 +33,10 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun initViewModel() {
+        detailViewModel.stateLiveData.observe(this){
+            binding.progressBar.isVisible = it
+        }
+
         detailViewModel.listBaseball.observe(this){
             adapter.updateList(it)
         }

@@ -13,6 +13,7 @@ class TeamsViewHolder(private val binding:ItemTeamsBinding):RecyclerView.ViewHol
         //barra de wins
 
         binding.tvNameTeam.text = item.teamName
+        binding.pbWins.progress = item.wins.toInt()
         binding.tvWins.text = item.wins
         Glide
             .with(binding.root)
