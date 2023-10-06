@@ -1,0 +1,32 @@
+package com.example.firstapiapplication.data.network.model.baseball.teamRoster
+
+data class Roster(
+    val bDay: String,
+    val bat: String,
+    val cbsLongName: String,
+    val cbsPlayerID: String,
+    val cbsPlayerIDFull: String,
+    val college: String,
+    val espnHeadshot: String,
+    val espnID: String,
+    val espnLink: String,
+    val espnName: String,
+    val height: String,
+    val highSchool: String,
+    val jerseyNum: String,
+    val lastGamePlayed: String,
+    val longName: String,
+    val mlbHeadshot: String,
+    val mlbID: String,
+    val mlbIDFull: String,
+    val mlbLink: String,
+    val playerID: String,
+    val pos: String,
+    val rotoWirePlayerID: String,
+    val rotoWirePlayerIDFull: String,
+    val team: String,
+    val teamAbv: String,
+    val teamID: String,
+    val `throw`: String,
+    val weight: String
+)
