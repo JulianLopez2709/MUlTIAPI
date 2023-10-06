@@ -24,6 +24,7 @@ class DetailActivity : AppCompatActivity() {
         initViewModel()
         initAdapter()
         initLister()
+        println("assa")
     }
 
     private fun initLister() {
